@@ -43,7 +43,7 @@ window.onload=function(){
                     globalUser = user;
                     hideLoginForm();
                     hideRegisterForm();
-                    showWelcomeUser(true, user.username);
+                    showWelcomeUser();
                     showDashboard(user.id);
                 }
             } else {
@@ -90,7 +90,7 @@ window.onload=function(){
     function registerUserIn(user){
         hideLoginForm();
         hideRegisterForm();
-        showWelcomeUser(true, user.username);
+        showWelcomeUser();
         showDashboard(user.id);
     }
 
@@ -104,10 +104,10 @@ window.onload=function(){
         registerCard.innerHTML = "";
     }
 
-    function showWelcomeUser(userExist, username){
+    function showWelcomeUser(){
         const welcomeCard = document.querySelector(".welcome-card")
-        if (userExist){
-            welcomeCard.innerHTML = `<h1>Welcome ${username}</h1>`;
+        if (globalUser){
+            welcomeCard.innerHTML = `<h1>Welcome ${globalUser.username}</h1>`;
         } else {
             welcomeCard.innerHTML = "<h3>INCORRECT USERNAME OR PASSWORD, PLEASE TRY AGAIN</h3>"
         }
